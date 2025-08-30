@@ -4,7 +4,7 @@ public class Space {
 
     private Integer actual;
     private final int expected;
-    private final boolean fixed;
+    private boolean fixed;
 
 
     public Space(final int expected, final boolean fixed) {
@@ -22,6 +22,15 @@ public class Space {
     public void setActual(final Integer actual) {
         if (fixed) return;
         this.actual = actual;
+    }
+
+    public void setFixed(boolean fixed) {
+        this.fixed = fixed;
+        if (fixed){
+            setActual(expected);
+        } else {
+            setActual(null);
+        }
     }
 
     public void clearSpace(){
